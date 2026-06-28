@@ -107,10 +107,15 @@ class AbsoluteCubicGenerator: public Generator {
     AbsoluteCubicGenerator(std::shared_ptr<Robot> robot, Pose target, bool reverse = false) {
       // Initialize the generator and save a pointer to the robot
       this->robot = robot;
-      // Save the target angle
+      // Save the target pose
       this->target = target;
       // Optional argument for executing the path backwards
       this->reverse = reverse;
+
+      if (this->reverse) {
+        // For reverse motions, calculate as if the target is backwards
+        this->target = absoluteTransform(this->target, Pose(0, 0, 180));
+      }
     }
 
   // Override the getPoints function and return a vector of points

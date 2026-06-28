@@ -489,7 +489,7 @@ void example3_5() {
   robot->setCurrent(Pose(50, 0, 90));
 
   // Create a cubic spline trajectory to an absolute target
-  generator = std::make_shared<AbsoluteCubicGenerator>(robot, Pose(20, -20, 90), true);
+  generator = std::make_shared<AbsoluteCubicGenerator>(robot, Pose(20, -20, -90), true);
   points = generator->getPoints();
 
   // Just print the points so we can see them

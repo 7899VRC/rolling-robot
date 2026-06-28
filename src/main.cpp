@@ -13,7 +13,7 @@
 using namespace vex;
 
 // A global instance of competition
-//competition Competition;
+competition Competition;
 
 // define your global instances of motors and other devices here
 Driver driver;
@@ -65,6 +65,7 @@ void autonomous(void) {
   // ..........................................................................
   // Insert autonomous user code here.
   // ..........................................................................
+  test_1();
 }
 
 /*---------------------------------------------------------------------------*/
@@ -101,12 +102,11 @@ int main() {
   std::cout << "-------------------- Starting Program --------------------" << std::endl;
 
   // Set up callbacks for autonomous and driver control periods.
-  //Competition.autonomous(autonomous);
-  //Competition.drivercontrol(usercontrol);
+  Competition.autonomous(autonomous);
+  Competition.drivercontrol(usercontrol);
 
   // Run the pre-autonomous function.
   pre_auton();
-  test_1();
 
   // Prevent main from exiting with an infinite loop.
   while (true) {
